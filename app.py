@@ -19,14 +19,13 @@ def post_links():
         return send_success()
 
 
-@app.route('/visited_links', methods=["GET"])
+@app.route('/visited_domains', methods=["GET"])
 def get_links():
     from_arg = int(request.args.get('from'))
     to_arg = int(request.args.get('to'))
 
     links = links_controller.get(from_arg, to_arg)
     return send_body_success(links)
-
 
 
 if __name__ == '__main__':
